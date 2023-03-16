@@ -1,0 +1,11 @@
+.account-container {
+  padding: 30px;
+  max-width: 80%;
+}
+.account-details > p {
+  background-color: #f3f3f3;
+  padding: 20px 20px;
+}
+.account-details > p > span{
+    font-weight: bold;
+}
