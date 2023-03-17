@@ -1,7 +1,9 @@
 import { useState } from "react";
 import axios from "axios";
-import "./Signup.css";
+import "../../styles/signup.css";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 const SignUp = () => {
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -17,17 +19,25 @@ const SignUp = () => {
         fullName,
       });
       console.log(res.data);
+      setUsername("");
+      setEmail("");
+      setPassword("");
+      setFullName("");
+      alert("Account Created SuccessFully Redirect to Login");
+      navigate("/login");
     } catch (error) {
       console.log(error.response.data.message);
     }
   };
 
   return (
-    <div className="signup-container">
-      <form onSubmit={handleSubmit}>
-        <h2>Signup</h2>
-        <div>
-          <label htmlFor="username">Username</label>
+    <div className="signup_container">
+      <form className="formContainer" onSubmit={handleSubmit}>
+        <h2 className="title">Signup</h2>
+        <div className="singleDiv">
+          <label className="myLabel" htmlFor="username">
+            Username
+          </label>
           <input
             type="text"
             name="username"
@@ -37,8 +47,10 @@ const SignUp = () => {
             required
           />
         </div>
-        <div>
-          <label htmlFor="email">Email</label>
+        <div className="singleDiv">
+          <label className="myLabel" htmlFor="email">
+            Email
+          </label>
           <input
             type="email"
             name="email"
@@ -48,8 +60,10 @@ const SignUp = () => {
             required
           />
         </div>
-        <div>
-          <label htmlFor="password">Password</label>
+        <div className="singleDiv">
+          <label className="myLabel" htmlFor="password">
+            Password
+          </label>
           <input
             type="password"
             name="password"
@@ -59,8 +73,10 @@ const SignUp = () => {
             required
           />
         </div>
-        <div>
-          <label htmlFor="fullName">Full Name</label>
+        <div className="singleDiv">
+          <label className="myLabel" htmlFor="fullName">
+            Full Name
+          </label>
           <input
             type="text"
             name="fullName"
@@ -70,7 +86,15 @@ const SignUp = () => {
             required
           />
         </div>
-        <button type="submit">Signup</button>
+        <button className="mybtn" type="submit">
+          Signup
+        </button>
+        <div className="member">
+          <span>Already a member?</span>
+          <span>
+            <Link to="/login">Login</Link>
+          </span>
+        </div>
       </form>
     </div>
   );

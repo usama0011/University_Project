@@ -1,0 +1,35 @@
+.delete_account {
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 30px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+}
+
+.deltehead {
+  margin-top: 0;
+  font-size: 24px;
+  color: #333;
+}
+
+.delete_account p {
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #666;
+}
+
+.delete_account button {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  background-color: #ff4444;
+  border: none;
+  border-radius: 3px;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.delete_account button:hover {
+  background-color: #ff6666;
+}

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "./Admin.css";
+import "../../styles/admin.css";
 
 const Admin = () => {
   const [users, setUsers] = useState([]);
@@ -26,7 +26,7 @@ const Admin = () => {
     }
   };
   return (
-    <div className="container">
+    <div className="admin-container">
       <h1>Admin Dashboard</h1>
       <table>
         <thead>

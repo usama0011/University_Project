@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "./Login.css";
+import "../../styles/login.css";
 const Login = () => {
   const navigate = useNavigate();
   const accessToken = localStorage.getItem("accessToken");
@@ -29,7 +29,7 @@ const Login = () => {
       console.log(data);
       localStorage.setItem("accessToken", data.token);
       localStorage.setItem("user", JSON.stringify(data.user)); // <-- store user info
-      console.log(data);
+      alert("login Successfull navigate to /");
       if (data.user && data.user.isAdmin) {
         navigate("/admin");
       } else {
@@ -41,11 +41,13 @@ const Login = () => {
   };
 
   return (
-    <div className="login-page">
-      <h2>Login</h2>
+    <div className="login_page">
+      <h2 className="title">Login</h2>
       <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="username">Username</label>
+        <div className="singleDiv">
+          <label className="myLabel" htmlFor="username">
+            Username
+          </label>
           <input
             type="text"
             name="username"
@@ -55,8 +57,10 @@ const Login = () => {
             required
           />
         </div>
-        <div className="form-group">
-          <label htmlFor="password">Password</label>
+        <div className="singleDiv">
+          <label className="myLabel" htmlFor="password">
+            Password
+          </label>
           <input
             type="password"
             name="password"
@@ -67,7 +71,7 @@ const Login = () => {
           />
         </div>
         {errorMessage && <div className="error">{errorMessage}</div>}
-        <button className="myButton" type="submit">
+        <button className="mybtn" type="submit">
           Login
         </button>
       </form>

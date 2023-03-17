@@ -1,8 +1,11 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "./NavBar.css";
+import "../styles/NavBar.css";
+
 const Navbar = () => {
   const user = JSON.parse(localStorage.getItem("user"));
+  const id = JSON.parse(localStorage.getItem("user"))?._id;
+
   const isLoggedIn = localStorage.getItem("accessToken") !== null;
   const navigate = useNavigate();
 
@@ -42,8 +45,18 @@ const Navbar = () => {
                   <span className="navbar-link">{user?.username}</span>
                 </li>
                 <li className="navbar-item">
-                  <Link to="/account" className="navbar-link">
+                  <Link to={`/account/${id}`} className="navbar-link">
                     Account
+                  </Link>
+                </li>
+                <li className="navbar-item">
+                  <Link to={`/update/${id}`} className="navbar-link">
+                    Update Account
+                  </Link>
+                </li>
+                <li className="navbar-item">
+                  <Link to={`/delete/${id}`} className="navbar-link">
+                    Delete Account
                   </Link>
                 </li>
                 <li className="navbar-item">

@@ -16,6 +16,8 @@ import Footer from "./components/Footer";
 import Account from "./pages/Account/Account";
 import ProtectedRoute from "./auth/protectRoute";
 import AdminProtectdRoute from "./auth/adminProtectdRoute";
+import Update from "./pages/update/Update";
+import DeleteAccountPage from "./pages/DeleteAccount/DeleteAccountPage";
 const Layout = () => {
   return (
     <>
@@ -47,8 +49,16 @@ const router = createBrowserRouter([
         element: <AdminProtectdRoute Component={Admin} />,
       },
       {
-        path: "/account",
+        path: "/account/:id",
         element: <ProtectedRoute Component={Account} />,
+      },
+      {
+        path: "/update/:id",
+        element: <ProtectedRoute Component={Update} />,
+      },
+      {
+        path: "/delete/:id",
+        element: <ProtectedRoute Component={DeleteAccountPage} />,
       },
     ],
   },

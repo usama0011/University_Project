@@ -1,6 +1,7 @@
 .account-container {
   padding: 30px;
   max-width: 80%;
+  margin: 100px auto;
 }
 .account-details > p {
   background-color: #f3f3f3;
